@@ -13,7 +13,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.0'
+        classpath 'com.android.tools.build:gradle:8.7.0'
         
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -38,10 +38,10 @@ allprojects {
 }
 
 ext {
-    compileSdk = 34
-    minSdk = 19
-    targetSdk = 34
-    ndkVersion = "25.2.9519653"
+    compileSdk = 36
+    minSdk = 21
+    targetSdk = 36
+    ndkVersion = "29.0.14206865"
     cmakeVersion = "3.22.1"
     userOrg = 'canyie'
     groupId = 'top.canyie.pine'

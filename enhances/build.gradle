@@ -17,13 +17,13 @@ android {
         externalNativeBuild {
             cmake {
                 arguments '-DANDROID_STL=none' // Use self-compiled libcxx instead of builtin STL to ensure C++ exception won't be introduced
-                abiFilters 'armeabi-v7a', 'arm64-v8a'
+                abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
                 targets 'pine-enhances'
             }
         }
 
         ndk {
-            abiFilters 'armeabi-v7a', 'arm64-v8a'
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
     }
 
@@ -62,7 +62,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'dev.rikka.ndk.thirdparty:cxx:1.2.0'
+    implementation 'org.lsposed.libcxx:libcxx:29.0.14206865'
     compileOnly project(':core')
 }
 
@@ -91,4 +91,11 @@ publishing {
 
 signing {
     sign publishing.publications.mavenJava
+}
+
+tasks.withType(Sign) {
+    onlyIf {
+        !gradle.taskGraph.hasTask(':enhances:publishToMavenLocal') &&
+        project.findProperty('signing.keyId') != null
+    }
 }

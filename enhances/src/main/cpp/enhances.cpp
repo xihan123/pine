@@ -56,7 +56,7 @@ static std::map<ArtMethod, const void*> pending_entries_;
 static std::mutex pending_entries_mutex_;
 
 // declaring class -> hook record list
-static std::map<ClassDef, std::list<const HookRecord>> hook_records_;
+static std::map<ClassDef, std::list<HookRecord>> hook_records_;
 static std::shared_mutex hook_records_mutex_;
 
 static void* instrumentation_ = nullptr;

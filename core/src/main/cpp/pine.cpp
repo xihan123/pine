@@ -21,6 +21,7 @@ using namespace pine;
 static constexpr jint kArchArm = 1;
 static constexpr jint kArchArm64 = 2;
 static constexpr jint kArchX86 = 3;
+static constexpr jint kArchX86_64 = 4;
 static constexpr jint kCurrentArch =
 #ifdef __aarch64__
         kArchArm64
@@ -28,6 +29,8 @@ static constexpr jint kCurrentArch =
         kArchArm
 #elif defined(__i386__)
         kArchX86
+#elif defined(__x86_64__)
+        kArchX86_64
 #endif
         ;
 

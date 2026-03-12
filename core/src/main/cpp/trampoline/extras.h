@@ -61,6 +61,12 @@ namespace pine {
         void* ecx = nullptr;
         void* edx = nullptr;
         void* esp = nullptr;
+#elif defined(__x86_64__)
+        // x86_64: rsi, rdx, rcx are the 2nd, 3rd, 4th arguments
+        void* rsi = nullptr;
+        void* rdx = nullptr;
+        void* rcx = nullptr;
+        void* rsp = nullptr;
 #else
 #error unsupported architecture
 #endif

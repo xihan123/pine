@@ -14,6 +14,8 @@
 #include "arch/thumb2.h"
 #elif defined(__i386__)
 #include "arch/x86.h"
+#elif defined(__x86_64__)
+#include "arch/x86_64.h"
 #else
 #error unsupported architecture
 #endif
@@ -30,6 +32,8 @@ TrampolineInstaller* TrampolineInstaller::GetOrInitDefault() {
         default_ = new Thumb2TrampolineInstaller;
 #elif defined(__i386__)
         default_ = new X86TrampolineInstaller;
+#elif defined(__x86_64__)
+        default_ = new X86_64TrampolineInstaller;
 #endif
         default_->Init();
     }
