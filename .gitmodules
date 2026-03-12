@@ -3,4 +3,4 @@
 	url = https://github.com/tukaani-project/xz-embedded
 [submodule "enhances/src/main/cpp/external/dobby"]
 	path = enhances/src/main/cpp/external/dobby
-	url = https://github.com/canyie/dobby
+	url = https://github.com/xihan123/Dobby
